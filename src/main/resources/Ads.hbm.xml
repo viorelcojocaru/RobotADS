@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="model.Ads" table="ads">
+		<meta attribute="class-description">
+			This class contains the Advertisement detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="title" column="title" type="string" />
+		<property name="description" column="description" type="string" />
+		<property name="locationSelector" column="location_selector" type="string" />
+		<property name="adType" column="ad_type" type="string" />
+		<property name="priceType" column="price_type" type="string" />
+		<property name="priceAmount" column="price_amount" type="string" />
+		<property name="imagePath" column="image_path" type="string" />
+		<property name="fileUploadInput" column="file_upload" type="string" />
+		<property name="mapAddress" column="map_address" type="string" />
+		<property name="youtubeVideoUrl" column="youtube_video_url" type="string" />
+		<property name="phoneNumber" column="phone_number" type="string" />
+                <property name="WWW" column="www" type="string" />
+	</class>
+</hibernate-mapping>
