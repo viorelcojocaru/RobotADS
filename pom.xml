@@ -160,6 +160,6 @@
 	 </dependency>
 	</dependencies>
 	<build>
-		<finalName>HibernateSQLite</finalName>
+             <finalName>HibernateSQLite</finalName>
 	</build>
 </project>
