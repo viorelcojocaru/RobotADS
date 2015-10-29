@@ -21,7 +21,7 @@ public class UserImpl implements UserIntf{
 
     private static UserImpl instance;
 
-    public UserImpl() {
+    private UserImpl() {
     }
 
     public static UserImpl getInstance() {
