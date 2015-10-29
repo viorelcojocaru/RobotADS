@@ -7,16 +7,17 @@ package dao;
 
 import java.util.List;
 import model.Ads;
+import org.hibernate.HibernateException;
 
 public interface AdsIntf {
 
-    public List<Ads> getAdsList();
+    public List<Ads> getAdsList() throws HibernateException;
 
-    public void saveAds(Ads ads);
+    public void saveAds(Ads ads)throws HibernateException;
 
-    public void updateAds(Ads ads);
+    public void updateAds(Ads ads) throws HibernateException;
 
-    public void deleteAds(Ads ads);
+    public void deleteAds(Ads ads) throws HibernateException;
     
-    public Ads getAdsById(int id);
+    public Ads getAdsById(int id) throws HibernateException;
 }

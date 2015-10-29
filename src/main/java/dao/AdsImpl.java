@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import model.Ads;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -31,7 +32,7 @@ public class AdsImpl implements AdsIntf {
         return instance;
     }
 
-    public List<Ads> getAdsList() {
+    public List<Ads> getAdsList() throws HibernateException{
         List<Ads> adsList;
         List obiects;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -47,13 +48,13 @@ public class AdsImpl implements AdsIntf {
             adsList.add(ads);
         }
 
-        if (adsList.size() > 0) {
+        if (adsList!=null && !adsList.isEmpty()) {
             return adsList;
         }
         return null;
     }
 
-    public Ads getAdsById(int id) {
+    public Ads getAdsById(int id) throws HibernateException{
         List obiects;
         Session session = HibernateUtil.getSessionFactory().openSession();
         obiects = session.createQuery("FROM Ads WHERE id=" + id).list();
@@ -68,7 +69,7 @@ public class AdsImpl implements AdsIntf {
         return null;
     }
 
-    public void saveAds(Ads ads) {
+    public void saveAds(Ads ads) throws HibernateException {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(ads);
@@ -77,7 +78,7 @@ public class AdsImpl implements AdsIntf {
         HibernateUtil.shutdown();
     }
 
-    public void updateAds(Ads ads) {
+    public void updateAds(Ads ads) throws HibernateException{
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.update(ads);
@@ -86,45 +87,12 @@ public class AdsImpl implements AdsIntf {
         HibernateUtil.shutdown();
     }
 
-    public void deleteAds(Ads ads) {
+    public void deleteAds(Ads ads) throws HibernateException{
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.delete(ads);
         tx.commit();
         session.close();
         HibernateUtil.shutdown();
-    }
-
-    public static void main(String[] args) {
-//        System.out.println(getInstance().getAdsList());
-//        Ads ads = new Ads();
-	/*	ads.setAdType("applea122wefdkjw");
-         ads.setDescription("123sa4562722kjhjwef");
-         ads.setTitle("titlel meas342ueee");
-         ads.setPhoneNumber("7873424298378793938");
-         ads.setLocationSelector("jassafeeqaeDJAS");
-         ads.setMapAddress("wjekjfkafeelwklfvklew");
-         ads.setPriceAmount("845723138");
-         ads.setPriceType("ty23eepe ");
-         ads.setYoutubeVideoUrl("sjd2112heejfjsk");
-         ads.setFileUploadInput("file2112 upeeloader");
-         ads.setImagePath("jfkdsakdfskfdsk");
-         getInstance().saveAds(ads);
-         */
-//              System.out.println(  getInstance().getAdsList());
-//        getInstance().deleteAds(ads);
-//            System.out.println(  getInstance().getAdsById(5));
-
-//        int id = 3;
-//        Ads ads = new Ads();
-//        ads = getInstance().getAdsById(id);
-//        if (ads != null) {
-//            ads.setDescription("Descriere noua update");
-//            System.out.println(ads);
-//        } else {
-//            System.out.println("no such Ads with id=" + id);
-//        }
-
-//           getInstance().deleteAds(ads);
     }
 }

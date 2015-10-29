@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import model.User;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -31,7 +32,7 @@ public class UserImpl implements UserIntf{
         return instance;
     }
 
-    public List<User> getUserList() {
+    public List<User> getUserList() throws HibernateException{
         List<User> userList;
         List obiects;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -45,13 +46,13 @@ public class UserImpl implements UserIntf{
             User user = (User) iterator.next();
             userList.add(user);
         }
-        if (userList.size() > 0) {
+        if (userList!=null && !userList.isEmpty()) {
             return userList;
         }
         return null;
     }
 
-    public User getUserById(int id) {
+    public User getUserById(int id) throws HibernateException {
         List obiects;
         Session session = HibernateUtil.getSessionFactory().openSession();
         obiects = session.createQuery("FROM User WHERE id=" + id).list();
@@ -66,7 +67,7 @@ public class UserImpl implements UserIntf{
         return null;
     }
 
-    public void saveUser(User user) {
+    public void saveUser(User user) throws HibernateException {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(user);
@@ -75,7 +76,7 @@ public class UserImpl implements UserIntf{
         HibernateUtil.shutdown();
     }
 
-    public void updateUser(User user) {
+    public void updateUser(User user) throws HibernateException{
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.update(user);
@@ -84,7 +85,7 @@ public class UserImpl implements UserIntf{
         HibernateUtil.shutdown();
     }
 
-    public void deleteUser(User user) {
+    public void deleteUser(User user) throws HibernateException{
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.delete(user);
@@ -92,32 +93,4 @@ public class UserImpl implements UserIntf{
         session.close();
         HibernateUtil.shutdown();
     }
-
-    public static void main(String[] args) {
-
-//        User user  = new User();
-//		user.setName("nume");
-//         user.setPassword("123sa4562722kjhjwef");
-//         user.setUserUrl("url");
-//         UserIntf userBC =UserImpl.getInstance();
-//         userBC.saveUser(user);
-         
-//              System.out.println(  getInstance().getAdsList());
-//        getInstance().deleteAds(ads);
-//            System.out.println(  getInstance().getAdsById(5));
-
-//        int id = 1;
-//        User user = new User();
-//        UserIntf userBC =UserImpl.getInstance();
-//      
-//        user =userBC. getUserById(id);
-//        if (user != null) {
-//            System.out.println(user);
-//        } else {
-//            System.out.println("no such Ads with id=" + id);
-//        }
-
-//           getInstance().deleteAds(ads);
-    }
-
 }
