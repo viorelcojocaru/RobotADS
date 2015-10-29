@@ -64,7 +64,7 @@ public class BuildInformation implements Runnable{
 	}
     
         private User getUser(){
-            UserIntf userBc=new UserImpl();
+            UserIntf userBc= UserImpl.getInstance();
            User user= userBc.getUserById(1);
            return user;
         }
