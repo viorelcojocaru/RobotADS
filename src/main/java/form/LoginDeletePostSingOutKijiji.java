@@ -402,7 +402,23 @@ public class LoginDeletePostSingOutKijiji {
 		out.close();		
 	}
     
+    
+    
+    
+    private static int recurse(int n){
+        
+        if(n==0){
+            return 1;
+        }else{
+           int recurse = recurse(n-1);
+                    int result=n*recurse;
+                    return result;
+        }
+            
+        
+    }
     public static void main(String[] args) {
+        System.out.println("recurse"+ recurse(3));
 //
 //        LoginDeletePostSingOutKijiji logPostAds = new LoginDeletePostSingOutKijiji();
 //        SurfOnKijijiIntf surfOnKijiji = new SurfOnKijijiImpl();
