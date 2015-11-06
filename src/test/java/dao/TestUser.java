@@ -24,14 +24,14 @@ public class TestUser {
         user.setPassword("123");
         user.setRedirectUrl("http://redirect");
         UserIntf userBC = UserImpl.getInstance();
-//        userBC.saveUser(user);      
-//        Long id = user.getId();
-//        Assert.assertNotNull(id);        
-//        Assert.assertEquals(2, user.getId());
-//        Assert.assertEquals("Viorel", user.getLogin());
-//        Assert.assertEquals("123", user.getPassword());
-//        String urlStr="http://redirect";
-//        Assert.assertEquals(urlStr, user.getRedirectUrl());
+        userBC.saveUser(user);      
+        Long id = user.getId();
+        Assert.assertNotNull(id);        
+        Assert.assertEquals(2, user.getId());
+        Assert.assertEquals("Viorel", user.getLogin());
+        Assert.assertEquals("123", user.getPassword());
+        String urlStr="http://redirect";
+        Assert.assertEquals(urlStr, user.getRedirectUrl());
     }
 
     @Test
