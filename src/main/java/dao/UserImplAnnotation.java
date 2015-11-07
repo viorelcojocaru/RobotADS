@@ -8,7 +8,6 @@ package dao;
 import java.util.List;
 import model.User;
 import org.hibernate.HibernateException;
-import util.HibernateUtil;
 import util.HibernateUtilAnnotation;
 import org.hibernate.Session;
 
@@ -51,7 +50,7 @@ public class UserImplAnnotation implements UserIntf {
         Object obiect = session.load(User.class, new Long(id));
         User user = (User) obiect;
         session.close();
-        HibernateUtil.shutdown();
+        HibernateUtilAnnotation.shutdown();
         if (user != null) {
             return user;
         } else {
