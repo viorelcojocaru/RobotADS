@@ -49,7 +49,7 @@ public class UserImplAnnotation implements UserIntf {
     public User getUserById(int id) throws HibernateException {
         Session session = HibernateUtilAnnotation.getSessionFactory().openSession();
         Object obiect = session.load(User.class, new Long(id));
-        User user = (User) obiect;System.out.println("user="+user);
+        User user = (User) obiect;
         session.close();
         HibernateUtil.shutdown();
         if (user != null) {
