@@ -33,6 +33,8 @@ public class HibernateUtilAnnotation {
     }
 
     public static void shutdown() {
-        getSessionFactory().close();
+        if(!getSessionFactory().isClosed()){
+            getSessionFactory().close();
+        }
     }
 }
