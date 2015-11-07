@@ -12,6 +12,6 @@
     <property name="hbm2ddl.auto">update</property>
     <mapping class="model.User"/>
     <!--<mapping resource="User.hbm.xml"/>
-                <mapping resource="Ads.hbm.xml"/>-->
+        <mapping resource="Ads.hbm.xml"/>-->
   </session-factory>
 </hibernate-configuration>
