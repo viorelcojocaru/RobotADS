@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.5</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- hiernate jars -->
@@ -147,19 +147,48 @@
 			<version>1.8.1</version>
 		</dependency>
 	 <dependency>
-	  <groupId>org.netbeans.external</groupId>
-	  <artifactId>json-simple-1.1.1</artifactId>
-	  <version>RELEASE80</version>
-	  <type>jar</type>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.netbeans.external</groupId>
-	  <artifactId>json-2</artifactId>
-	  <version>RELEASE65</version>
-	  <type>jar</type>
-	 </dependency>
+             <groupId>org.netbeans.external</groupId>
+             <artifactId>json-simple-1.1.1</artifactId>
+             <version>RELEASE80</version>
+             <type>jar</type>
+         </dependency>
+         <dependency>
+             <groupId>org.netbeans.external</groupId>
+             <artifactId>json-2</artifactId>
+             <version>RELEASE65</version>
+             <type>jar</type>
+         </dependency>
+         <!--end json -->
+        <dependency>
+             <groupId>org.netbeans.external</groupId>
+             <artifactId>hibernate-annotations</artifactId>
+             <version>RELEASE69</version>
+             <type>jar</type>
+         </dependency>
+         <!--<dependency>
+		<groupId>hibernate-commons-annotations</groupId>
+		<artifactId>hibernate-commons-annotations</artifactId>
+		<version>3.0.0.GA</version>
+	</dependency>-->
 	</dependencies>
 	<build>
              <finalName>HibernateSQLite</finalName>
+             <plugins>
+                 <plugin>
+                     <artifactId>maven-compiler-plugin</artifactId>
+                     <configuration>
+                         <mainClass>form.MainApp</mainClass>
+                     </configuration>
+                     <executions>
+                         <execution>
+                             <id>packege</id>
+                             <phase>form</phase>
+                             <goals>
+                                 <goal>build-jar</goal>
+                             </goals>
+                         </execution>
+                     </executions>
+                 </plugin>
+             </plugins>
 	</build>
 </project>
