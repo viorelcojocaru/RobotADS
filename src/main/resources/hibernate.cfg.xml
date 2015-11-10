@@ -11,6 +11,7 @@
     <property name="connection.password"/>
     <property name="hbm2ddl.auto">update</property>
     <mapping class="model.User"/>
+    <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
     <!--<mapping resource="User.hbm.xml"/>
         <mapping resource="Ads.hbm.xml"/>-->
   </session-factory>
